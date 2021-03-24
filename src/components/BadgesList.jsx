@@ -1,10 +1,25 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import './styles/BadgesList.css'
 
 class BadgesList extends React.Component{
   render(){
     const {badges} = this.props;
+
+    if(badges.length === 0){
+      return (
+        <div>
+          <h3>No badges where found</h3>
+          <Link
+            className="btn btn-primary"
+            to="/badges/new"
+          >
+            Create new Badge
+          </Link>
+        </div>
+      )
+    }
 
     return(
       <ul 
