@@ -1,0 +1,39 @@
+.notfound__content{
+  width: 100%;
+  padding: 2rem 0;
+  background: url('../../images/stars.svg'), #1B1B25;
+  background-repeat: repeat;
+  margin-bottom: 0;
+  height: calc(100vh - 60px);
+}
+
+.notfound__content > .row{
+  height: 100%;
+  display: flex;
+}
+
+.notfound__content .row .col{
+  width: 100%;
+  flex-basis: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.notFound__img{
+  width: 320px;
+}
+
+.notfound__content .row  .notfound__copy{
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.notfound__copy-text{
+  color: #fff;
+  font-size: 45px;
+  line-height: 54px;
+  letter-spacing: 0.15px;
+  width: 60%;
+  text-align: center;
+}

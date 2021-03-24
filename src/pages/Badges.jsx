@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Navbar from '../components/Navbar';
 import BadgesList from '../components/BadgesList';
 
 import logo from '../images/badge-header.svg'
 import './styles/Badges.css';
+import { Link } from 'react-router-dom';
 
 class Badges extends React.Component{
 
@@ -42,8 +42,7 @@ class Badges extends React.Component{
 
   render(){
     return(
-      <div>
-        <Navbar />
+      <>
         <div className="Badges__hero">
           <div className="Badges__container">
             <img 
@@ -56,12 +55,10 @@ class Badges extends React.Component{
 
         <div className="Badges__container">
           <div className="Badges__buttons">
-            <a 
-              href="/badges/new"
-              className="btn btn-primary"
-            >
+            {/* usamos Link en lugar de a para que no se recargue toda la pagina, Link usa to, en lugar de href */}
+            <Link to="/badges/new" className="btn btn-primary">
               New Badge
-            </a>
+            </Link>
           </div>
           
           <div className="Badges__list">
@@ -71,7 +68,7 @@ class Badges extends React.Component{
           </div>
         </div>        
 
-      </div>
+      </>
 
     );
   }

@@ -24,7 +24,7 @@ class BadgeForm extends React.Component{
     const { onChange, formValue } = this.props;
     
     return(
-      <div>
+      <>
         <h2>New Attendant</h2>
         
         <form onSubmit={this.handleSubmit}>
@@ -81,7 +81,7 @@ class BadgeForm extends React.Component{
 
           <button onClick={this.handleClick} className="btn btn-primary">Save</button>
         </form>
-      </div>
+      </>
     );
   }
 }

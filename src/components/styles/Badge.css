@@ -5,6 +5,7 @@
   overflow: hidden;
   height: 380px;
   display: block;
+  padding: 0;
 }
 
 .badge_header {
