@@ -1,5 +1,7 @@
 import React from 'react'
 import BadgesList from '../components/BadgesList';
+import PageLoading from '../components/PageLoading';
+import PageError from '../components/PageError';
 import logo from '../images/badge-header.svg'
 import './styles/Badges.css';
 import { Link } from 'react-router-dom';
@@ -33,12 +35,15 @@ class Badges extends React.Component{
 
   render(){
     const {loading, error, data} = this.state
+
     if(loading === true){
-      return 'Loading...';
+      return <PageLoading />;
     }
 
     if(error){
-      return `Error: ${error.message}`;
+      return (
+        <PageError error={error} />
+      )
     }
 
     return(

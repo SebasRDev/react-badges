@@ -2,15 +2,15 @@ import React from "react";
 
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
-import './styles/BadgeNew.css';
+import './styles/BadgeEdit.css';
 import heroImg from '../images/platziconf-logo.svg'
 import api from '../api';
 import md5 from 'md5';
 import PageLoading from "../components/PageLoading";
 
-class BadgeNew extends React.Component {
+class BadgeEdit extends React.Component {
   state = {
-    loading: false,
+    loading: true,
     error: null,
     form: {
       firstName: '',
@@ -37,7 +37,7 @@ class BadgeNew extends React.Component {
 
     try {
       this.state.form.avatarUrl = this.getGravatar(this.state.form.email);
-      await api.badges.create(this.state.form);
+      await api.badges.update(this.props.match.params.badgeId, this.state.form);
       this.setState({loading: false });
 
       this.props.history.push('/badges');
@@ -51,6 +51,23 @@ class BadgeNew extends React.Component {
     const gravatarLink = `https://www.gravatar.com/avatar/${hash}?d=identicon`
 
     return gravatarLink;
+  }
+
+  componentDidMount(){
+    this.fetchData();
+  }
+
+  fetchData = async e => {
+    this.setState({loading: true, error: null});
+
+    try {
+      const data = await api.badges.read(
+        this.props.match.params.badgeId
+      );
+      this.setState({loading: false, form: data});
+    } catch (error) {
+      this.setState({loading: false, error: error})
+    }
   }
 
   render(){
@@ -79,7 +96,7 @@ class BadgeNew extends React.Component {
               />
             </div>
             <div className="col-6">
-              <h2>New Attendant</h2>
+              <h2>Edit Attendant</h2>
               {/* levantamiento de estadp */}
               <BadgeForm onSubmit={this.handleSubmit} onChange={ this.handleChange } formValue = {form} error={error}/>
             </div>
@@ -90,4 +107,4 @@ class BadgeNew extends React.Component {
   }
 }
 
-export default BadgeNew;
+export default BadgeEdit;

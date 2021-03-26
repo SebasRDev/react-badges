@@ -32,3 +32,11 @@
 .badge__info-twitter{
   color: #00acee;
 }
+
+.BadgesListItem-link{
+  display: flex;
+}
+
+.BadgesListItem-link:hover{
+  text-decoration: none;
+}

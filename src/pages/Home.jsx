@@ -18,7 +18,7 @@ class Home extends React.Component{
               <h2 className="home__copy-title">Print your badges</h2>
               <p className="home__Copy-desc">The easiest way to manage your conference</p>
               <Link 
-                to="/badges/new"
+                to="/badges"
                 className="btn btn-primary"
               >
                 Start now
